@@ -1,0 +1,24 @@
+version: "2"
+linters:
+  default: all
+
+  disable:
+    - varnamelen
+    - exhaustruct
+  settings:
+    ireturn: 
+      allow:
+        # Design of an external library. can't do much about it.
+        - anon
+        - any
+        - "error"
+    depguard:
+      rules:
+        main:
+          allow:
+            - $gostd
+            - go.uber.org/fx
+            - go.uber.org/zap
+            - github.com/tvanriel/discord-commands
+            - github.com/stretchr/testify
+            - github.com/bwmarrin/discordgo
