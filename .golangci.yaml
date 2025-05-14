@@ -1,6 +1,16 @@
 version: "2"
 linters:
   default: all
+  exclusions:
+    rules:
+      - path: '_test\.go'
+        linters:
+          - gochecknoglobals
+          - funlen
+          - revive
+          - errcheck
+          - wrapcheck
+          - funcorder
 
   disable:
     - varnamelen

@@ -19,6 +19,7 @@ func TestHasPrefix(t *testing.T) {
 	t.Parallel()
 
 	assert.True(t, commands.HasCommandPrefix("!", "ps", "!ps test"))
+	assert.True(t, commands.HasCommandPrefix("!", "ps", "!ps"))
 	assert.True(t, commands.HasCommandPrefix("!", "ps", "!ps      test"))
 	assert.False(t, commands.HasCommandPrefix("!", "ps", "!pstest"))
 
@@ -34,7 +35,7 @@ func TestSplitArgs(t *testing.T) {
 	}{
 		"empty string": {
 			s:    "",
-			want: []string{""},
+			want: []string{},
 		},
 		"one arg": {
 			s:    "test",

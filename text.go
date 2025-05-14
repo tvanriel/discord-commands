@@ -2,7 +2,7 @@ package commands
 
 import "strings"
 
-// Strip the prefix from a command.
+// StripPrefix strips the prefix from a command.
 func StripPrefix(trigger string, command string) func(string) string {
 	prefixLen := len(trigger) + len(command)
 
@@ -22,5 +22,5 @@ func HasCommandPrefix(trigger string, command string, message string) bool {
 
 // SplitArgs splits the arguments of a command into a string slice.
 func SplitArgs(s string) []string {
-	return strings.Split(s, " ")
+	return strings.Fields(s)
 }
